@@ -5,6 +5,23 @@ local Helper = {}
         return Table
     end
 
+    function Helper.Abs(x)
+        return x < 0 and -x or x
+    end
+
+    function Helper.Pow(base, exp)
+        local result = 1
+        local absExp = Helper.Abs(exp)
+        for i = 1, absExp do
+            result = result * base
+        end
+        if exp < 0 then
+             return 1 / result
+        end
+        return result
+    end
+
+
     function Helper.ForEachFunc(Table, func)
         for i, v in pairs(Table) do
             func(i, v)
